@@ -6,9 +6,14 @@
 //  Copyright © 2019 Oniel Rosario. All rights reserved.
 //
 
+
+/*
+ Will build the UI on stoyboard instead of programmatically.
+ */
+
 import UIKit
 
-class ViewController: UIViewController {
+class MainViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
