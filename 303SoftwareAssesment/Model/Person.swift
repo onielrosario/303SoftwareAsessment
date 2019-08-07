@@ -10,6 +10,7 @@ import Foundation
 
 
 //json model
+//will use class insetead of struct to can be able to cache
 class Person: Codable {
     let fn: String
     let ln: String
