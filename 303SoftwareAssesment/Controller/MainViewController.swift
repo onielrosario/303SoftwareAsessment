@@ -14,7 +14,14 @@
 import UIKit
 
 class MainViewController: UIViewController {
-
+    @IBOutlet weak var tableView: UITableView!
+    var people = [Person]() {
+        didSet {
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        }
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.

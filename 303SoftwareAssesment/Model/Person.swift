@@ -10,9 +10,9 @@ import Foundation
 
 
 //json model
-//will use class insetead of struct to can be able to cache
+//will use class instead of struct to can be able to cache
 class Person: Codable {
-    let fn: String
-    let ln: String
+    let fname: String
+    let lname: String
     let city: String
 }
