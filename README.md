@@ -4,6 +4,7 @@ Assessment for 303 Software
 # Tasks:
 - [x] Start a new iOS project in Swift and put it on GitHub
 - [x] In the app, GET and parse this JSON
+- [x] test the JSON data
 - [x] Display the parsed data in a UITableView
 - [x] Send us a link to the GitHub repository
 
