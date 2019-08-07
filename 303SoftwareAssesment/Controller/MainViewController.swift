@@ -24,9 +24,47 @@ class MainViewController: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+     getPeople()
+    setupUI()
     }
 
+    private func setupUI() {
+        tableView.delegate = self
+        tableView.dataSource = self
+    }
+    
+    private func getPeople() {
+        APIClient.GetJSONData { (people, error) in
+            if let error = error {
+                print(error.localizedDescription)
+            } else if let people = people {
+                self.people = people
+            }
+        }
+    }
 
 }
 
+extension MainViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return people.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "PersonCell") as? TableViewCell else { return UITableViewCell() }
+        let person = people[indexPath.row]
+        // cache data to minimize API Call
+        let cache = NSCache<NSString, Person>()
+        if let dataCached = cache.object(forKey: "dataCached") {
+            cell.configureCell(person: dataCached)
+        } else {
+            cell.configureCell(person: person)
+        }
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 60
+    }
+    
+}
