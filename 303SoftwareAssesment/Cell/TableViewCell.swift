@@ -13,7 +13,6 @@ class TableViewCell: UITableViewCell {
     @IBOutlet weak var lastNameLabel: UILabel!
     @IBOutlet weak var cityLabel: UILabel!
     
-    
     func configureCell(person: Person) {
         firstNameLabel.text = "Name: \(person.fname)"
         lastNameLabel.text = "Last name: \(person.lname)"

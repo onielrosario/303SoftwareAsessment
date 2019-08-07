@@ -8,7 +8,7 @@
 
 
 /*
- Will build the UI on stoyboard instead of programmatically.
+ Will build the UI on stoyboard.
  */
 
 import UIKit
@@ -24,13 +24,13 @@ class MainViewController: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-     getPeople()
     setupUI()
     }
 
     private func setupUI() {
         tableView.delegate = self
         tableView.dataSource = self
+         getPeople()
     }
     
     private func getPeople() {
@@ -42,7 +42,6 @@ class MainViewController: UIViewController {
             }
         }
     }
-
 }
 
 extension MainViewController: UITableViewDelegate, UITableViewDataSource {
@@ -66,5 +65,4 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 150
     }
-    
 }
