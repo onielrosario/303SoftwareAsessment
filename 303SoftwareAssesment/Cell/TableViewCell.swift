@@ -15,9 +15,8 @@ class TableViewCell: UITableViewCell {
     
     
     func configureCell(person: Person) {
-        firstNameLabel.text = person.fname
-        lastNameLabel.text = person.lname
-        cityLabel.text = person.city
+        firstNameLabel.text = "Name: \(person.fname)"
+        lastNameLabel.text = "Last name: \(person.lname)"
+        cityLabel.text = "City: \(person.city)"
     }
-
 }
